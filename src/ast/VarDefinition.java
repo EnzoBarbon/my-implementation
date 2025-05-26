@@ -1,5 +1,7 @@
 package ast;
 
+
+
 /**
  * A variable definition associates a name with a {@link Type}.
  */
