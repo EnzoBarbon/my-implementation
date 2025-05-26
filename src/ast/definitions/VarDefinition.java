@@ -1,6 +1,8 @@
-package ast;
+package ast.definitions;
 
-
+import ast.AbstractASTNode;
+import ast.Definition;
+import ast.Type;
 
 /**
  * A variable definition associates a name with a {@link Type}.

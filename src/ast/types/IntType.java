@@ -1,6 +1,7 @@
-package ast;
+package ast.types;
 
-
+import ast.AbstractASTNode;
+import ast.Type;
 
 /**
  * Singleton representing the built-in {@code int} type.

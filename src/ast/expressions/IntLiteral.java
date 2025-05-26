@@ -1,6 +1,7 @@
-package ast;
+package ast.expressions;
 
-
+import ast.AbstractASTNode;
+import ast.Expression;
 
 /**
  * Integer literal expression.
