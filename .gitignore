@@ -23,13 +23,6 @@
 hs_err_pid*
 replay_pid*
 
-# IDE files
-.idea/
-*.iml
-.vscode/
-.settings/
-.project
-.classpath
 
 # Build directories
 out/
