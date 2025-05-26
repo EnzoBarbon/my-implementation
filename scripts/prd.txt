@@ -1,0 +1,91 @@
+Project: C-- Compiler Implementation
+Author: [Your Name] (Student)
+Date: 2025-05-26
+Version: 0.1
+
+1. Overview
+This project aims to develop a full-stack compiler for the C-- language as part of the Design of Programming Languages course laboratories. The compiler will be built incrementally across several lab sessions. Each session focuses on a specific phase, starting with AST design and implementation, and culminating in code generation.
+
+2. Vision & Goals
+- Provide a clean, maintainable, and extensible codebase written in Java 17 (or course-mandated version).
+- Follow best software-engineering practices (OO design, SOLID, Visitor pattern, modular architecture).
+- Produce a working compiler capable of translating valid C-- source code into an intermediate/assembly target understood by the course tool-chain.
+- Maintain parity with the reference grammars while allowing personal innovation where beneficial.
+
+3. Out-of-Scope
+- IDE plugins or GUIs.
+- Optimisation passes beyond the minimum required by the course.
+- Alternative back-ends (LLVM, JVM) at this stage.
+
+4. Stakeholders
+- Student developer (primary).
+- Course instructors & TAs (reviewers).
+- Classmates (pair / group reviews).
+
+5. High-Level Milestones (mapped to sessions)
+| Session | Focus | Deliverables |
+|---------|-------|--------------|
+| 1 | AST Design | • Complete UML class diagrams for Expressions, Statements, Program/Definitions, Types (PNG). |
+| 2 | AST Implementation | • `ast` package with all classes & interfaces.<br>• Constructors + fields (line, column, etc.).<br>• Basic unit tests. |
+| 3* | Grammar & Parser | • ANTLR 4 grammar (`Cmm.g4` or variant).<br>• Generated lexer/parser.<br>• Parse tree → AST builder. |
+| 4* | Semantic Analysis | • Visitors for Identification, TypeChecking, LValue, Offset. |
+| 5* | Code Generation | • CodeGenerator infrastructure.<br>• Visitors for Address/Value/Execute.<br>• Working output for test suite. |
+| 6 | Final Polish & Demo | • Error handling polish.<br>• Documentation & demo programs. |
+(* Planned; exact dates TBD by course schedule.)
+
+6. Detailed Requirements
+6.1 Functional Requirements (FR)
+FR-01  The compiler SHALL parse valid C-- source into an AST.
+FR-02  The AST nodes SHALL store source position (line & column).
+FR-03  The AST design SHALL mirror the UML diagrams submitted in Session 1.
+FR-04  The compiler SHALL perform semantic checks: symbol identification, type checking, l-value validation, and memory layout.
+FR-05  The compiler SHALL generate target code accepted by the course VM/assembler.
+FR-06  The build SHALL be reproducible via Gradle/Maven or plain `javac` + scripts.
+
+6.2 Non-Functional Requirements (NFR)
+NFR-01  Code MUST compile without warnings (`-Xlint:all`).
+NFR-02  Public APIs MUST be documented with Javadoc.
+NFR-03  Source MUST follow the course style-guide / Google Java Style.
+NFR-04  Unit tests coverage ≥ 70 % for AST after Session 2.
+NFR-05  Entire build/test time ≤ 10 s on reference hardware.
+
+7. Architecture & Design Decisions
+- Package layout: `src/ast`, `src/parser`, `src/semantic`, `src/codegeneration`, `src/errorhandler`, `src/visitor`, `src/main`.
+- Core interfaces: `ASTNode` (root), `Locatable` (line,column), `Expression`, `Statement`, `Definition`, `Type`.
+- Use Visitor pattern (`Visitor<TP,TR>`) to decouple operations.
+- Immutable AST nodes where feasible; setters only for semantic decorations.
+
+8. Data Model (AST) Summary
+8.1 Common Fields
+• `int line`, `int column` in `AbstractASTNode` (implements `Locatable`).
+
+8.2 Expression Hierarchy (partial)
+• `IntLiteral`, `DoubleLiteral`, `CharLiteral`, `Variable`, `Arithmetic`, `Logical`, `Comparison`, `UnaryMinus`, `UnaryNot`, `Cast`, `Indexing`, `RecordAccess`, `FunctionCall`.
+
+8.3 Statement Hierarchy (partial)
+• `Assignment`, `If`, `While`, `Return`, `Read`, `Write`, `FunctionCallStatement`.
+
+8.4 Definition Hierarchy
+• `VarDefinition`, `FunctionDefinition`, `StructDefinition` (optional).
+
+8.5 Type Hierarchy
+• `IntType`, `DoubleType`, `CharType`, `ArrayType`, `StructType`, `VoidType`, `FunctionType`.
+
+9. Acceptance Criteria
+- All FR & NFR satisfied for each session before moving to next.
+- Passing instructor-provided test cases.
+- UML diagrams kept in `docs/uml/*.png` and match implementation.
+
+10. Risks & Mitigations
+R-01  Time pressure ⇒ Follow weekly milestones & automation.
+R-02  Design drift ⇒ Continuous UML → code sync checks.
+R-03  Tooling issues ⇒ Use stable ANTLR 4.13 + Gradle plugin.
+
+11. Glossary
+AST – Abstract Syntax Tree
+C-- – Subset language specified in course notes
+Visitor – OO pattern enabling double dispatch on AST
+Locatable – Interface providing source coordinates
+
+---
+End of PRD 

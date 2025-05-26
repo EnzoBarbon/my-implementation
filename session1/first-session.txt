@@ -1,0 +1,142 @@
+Lab 01
+AST Design
+Francisco Ortín Soler University of Oviedo
+Teaching method
+• In the labs, you will practice what you have
+learned in the lectures
+• The lecturer
+◼ Waits for all the students to be ready (so they can
+pay attention)
+◼ Explains the problem
+◼ Directs the basic work by asking questions
+◼ Helps the student with any question
+◼ Analyzes the student’s work (continuous
+evaluation) to help them out
+⚫ Such work is later assessed in lab 6
+• After every lab (5 minutes before its end) you
+must upload your workFrancisco Ortin
+Objective
+• Design the Abstract Syntax Tree (AST)
+of our C-- language
+Francisco Ortin
+Recall
+Phases of a Translator
+Source Program
+Text (characters)
+Lexical Analysis
+(Scanner / Lexer)
+Tokens
+Syntactic / Syntax
+Analysis (Parser)
+Abstract Syntax Tree (AST)
+Semantic / Contextual
+Analysis
+Annotated / Decorated AST
+Code
+Generation
+Target Code
+Target Program
+• The AST is the main data
+structure used in a
+compiler
+• It represents any input
+program in memory
+• It is a simplification of the
+parse tree
+• It must be as simple as
+possible
+Francisco Ortin
+Question
+• Given the following statement
+a = (-b+3)*c/2;
+• What is the sequence of tokens recognized by the
+lexical analyzer?
+Francisco Ortin
+Tokens
+• Given the following statement
+a = (-b+3)*c/2;
+• The AST represents the structure of such
+statement in a multi-dimensional representation
+• Unnecessary tokens are not included as nodes
+◼ Because they do not add semantic information
+• Question: Which are those unnecessary tokens in
+the statement above?
+Francisco Ortin
+AST
+• Given the two following expression
+1. 1 + b
+2. (-b+3)*c/2
+• Represent the two ASTs considering the operator
+precedence of C / Java
+• For each AST
+1. Which element is the root node?
+2. Which are their child nodes?
+◼ Answer the previous question until done
+• Draw the AST
+Francisco Ortin
+Object-Oriented Design
+• Our previous drawing is a naïve representation of
+an object-oriented AST
+• As software engineers, we must define an OO
+design in UML (class diagram)
+• For each object (node) in the AST, identify those
+objects with the same structure and behavior
+◼ That is, identify their class
+• Then, you will have the AST OO design
+• Use draw.io for that (load basic.drawio)
+Francisco Ortin
+Autonomous Activity 1: Expressions
+• Finish the AST design for all the expressions in
+C--
+◼ In description.txt you have the description of the
+C-- language
+◼ In input.txt you have an example input
+◼ Ask the lecturer any questions
+Francisco Ortin
+Statements
+• In C--
+, assignments are statements
+◼ Not expressions, as in Java and C
+• Question: What is the difference?
+• Create a new class diagram (statements)
+• Write the UML class diagram to model
+assignments
+• You may use the following example
+a = (-b+3)*c/2;
+Francisco Ortin
+Autonomous Activity 2: Statements
+• Finish the AST design for all the statements in
+C--
+◼ In description.txt you have the description of the
+C-- language
+◼ In input.txt you have an example input
+◼ Ask the lecturer for questions
+Francisco Ortin
+Program and Functions
+• Read the specification of a program and
+function in description.txt
+◼ That is, the first four paragraphs of
+description.txt
+• Create a new UML class diagram (program)
+• Let’s design programs and functions
+Francisco Ortin
+Autonomous Activity 3: Types
+• Create a new class diagram (types)
+• Design all the types in C--
+◼ In description.txt you have the description of the
+C-- language
+◼ In input.txt you have an example input
+◼ Ask the lecturer for questions
+Francisco Ortin
+Autonomous Work
+• Let’s recap
+◼ Finish the design of expressions, statements and
+types
+◼ Make sure you have designed all the C-- language
+(i.e., any program could be represented with your
+design)
+◼ Ask the lecturer any questions
+◼ 5 minutes before the end of the class, you must
+upload your work (4 png files of your diagrams)
+◼ It must be finished before the next lab
+◼ In the next lab, you will show us your diagrams

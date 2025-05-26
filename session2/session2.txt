@@ -1,0 +1,113 @@
+Lab 02
+AST Implementation
+Francisco Ortín Soler University of Oviedo
+Objective
+1. Present and debate your AST designs (flipped
+classroom)
+2. Implement your AST designs
+Francisco Ortin
+1) AST design
+• In the last lab, we started the design of the
+following AST nodes
+1. Expressions
+2. Statements
+3. Program and definitions
+4. Types
+• They must be finished for today
+• Now, you will present your designs
+• Let’s start with expressions
+◼ Any volunteers?
+Francisco Ortin
+1) AST design
+• Let’s move to statements
+• Program and definitions are already done
+• Let’s go ahead with types
+Francisco Ortin
+2) AST implementation
+• Where do we place line and column fields?
+• Where do we implement getLine() and getColumn()?
+• Where do we place type and name for definitions?
+• Write all the (direct and indirect) supertypes of the
+VarDefinition class implementation
+<<interface>>
+ASTNode
+<<interface>>
+Locatable
+getLine():int
+getColumn():int
+<<interface>>
+Statement
+Program
+<<interface>>
+Expression
+<<interface>>
+Definition
+1
+<<interface>>
+Type
+getName():String
+Write Arithmetic
+VarDefinition
+IntType
+Francisco Ortin
+2) AST implementation
+• What are the parameters of IntLiteral constructor?
+• What would be the implementation of that
+constructor?
+<<interface>>
+ASTNode
+<<interface>>
+Locatable
+getLine():int
+getColumn():int
+<<interface>>
+Statement
+Program
+<<interface>>
+Expression
+<<interface>>
+Definition
+getType():Type
+getName():String
+1
+<<interface>>
+Type
+Write VarDefinition
+IntLiteral
+value: int
+IntType
+Francisco Ortin
+2) AST implementation
+• What are the constructor parameters of
+VarDefinition?
+• What are the fields of FunctionType?
+<<interface>>
+Locatable
+getLine():int
+getColumn():int
+<<interface>>
+ASTNode
+<<interface>>
+Definition
+getName():String
+1
+parameters
+returnType
+*
+1
+<<interface>>
+Type
+VarDefinition
+Function
+Type
+Francisco Ortin
+Autonomous work
+• Implement your AST in an ast package
+• Always follow your UML class diagrams
+(mandatory)
+◼ It will be checked in the midterm exam)
+◼ Do not follow the diagrams in the code ⇒ fail
+◼ Modify them accordingly
+• At the end of the lab, upload your work
+1. 2. Your AST class diagrams (png files)
+The source code of your ast package
